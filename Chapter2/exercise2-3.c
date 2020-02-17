@@ -1,32 +1,38 @@
 #include <stdio.h>
+#include <ctype.h>
 
-/* htoi: convert a string of hexadecimal digits to integer */
-int htoi(char s[ ])
+int convert_to_int(int);
+int htoi(char s[]);
+
+int main(void)
 {
-    int i, n, hexdigit;
-    int ishex = 0;
+  char s[] = "5f";
+  /* just for test */
+  printf("%d", htoi(s));
+  
+  return 0;
+}
 
-    i = 0;
-    if (s[i] == '0') {
-        ++i;
-        if (s[i] == 'x' || s[i] == 'X')
-            ++i;
-            ishex = 1;
-    }
-    
-    n = 0;
-    for ( ; ishex == 1; ++i) {
-        if (s[i] >= '0' && s[i] <= '9')
-            hexdigit = s[i] - '0';
-        else if (s[i] >= 'a' && s[i] <= 'f')
-            hexdigit = s[i] - 'a' + 10;
-        else if (s[i] >= 'A' && s[i] <= 'F')
-            hexdigit = s[i] - 'A' + 10;
-        else
-            ishex = 0;
-        if (ishex == 1)
-            n = n * 16 + hexdigit;
-    }
+int htoi(char s[])
+{
+  int i, n;
+  n = 0;
 
-    return n;
+  for (i = 0; isxdigit(s[i]); ++i) {
+    n = n * 16 + convert_to_int(s[i]);
+  }
+
+  return n;
+}
+// ascii conversion is Linghui Zeng's. thanks man
+int convert_to_int(int c)
+{
+  if (isdigit(c))
+    return c - '0';
+  else if (c >= 'a' && c <= 'f')
+    return c - 'a' + 10;
+  else if (c >= 'A' && c <= 'F')
+    return c - 'A' + 10;
+  else
+    return 0;
 }
