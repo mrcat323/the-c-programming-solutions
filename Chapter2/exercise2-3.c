@@ -6,8 +6,9 @@ int htoi(char s[]);
 
 int main(void)
 {
-  char s[] = "5f";
+  char s[] = "0x5f";
   /* just for test */
+  /* the output: 95 */
   printf("%d", htoi(s));
   
   return 0;
@@ -15,16 +16,17 @@ int main(void)
 
 int htoi(char s[])
 {
-  int i, n;
-  n = 0;
+  int i, j, n;
+  n = j = 0;
 
-  for (i = 0; isxdigit(s[i]); ++i) {
-    n = n * 16 + convert_to_int(s[i]);
-  }
+  if (s[j++] == '0' && (s[j] == 'x' || s[j] == 'X'))
+    for (i = 2; isxdigit(s[i]); ++i) {
+      n = n * 16 + convert_to_int(s[i]);
+    }
 
   return n;
 }
-// ascii conversion is Linghui Zeng's. thanks man
+/* ascii conversion is Linghui Zeng's. thanks man */
 int convert_to_int(int c)
 {
   if (isdigit(c))
