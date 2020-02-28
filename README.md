@@ -39,7 +39,7 @@ Provide high quality solutions to the exercises in "The C Programming Language" 
 * Exercise 2-5. Write the function `any(s1, s1)`, which returns the first location in the string `s1` where any character from the string `s2` occurs, or `-1` if `s1` contains no characters from `s2`. (The standard library function `strpbrk` does the same job but returns a pointer to the location.) [solution](Chapter2/exercise2-5.c)
 * Exercise 2-6. Write a function `setbits(x, p, n, y)` that returns `x` with the `n` bits that begin at position `p` set to the rightmost `n` bits of `y`, leaving the other bits unchanged. [solution](Chapter2/exercise2-6.c)
 * Exercise 2-7. Write a function `invert(x, p, n)` that return `x` with the `n` bits that begin at position `p` inverted (i.e., 1 changed into 0 and vice versa), leaving the others unchanged. [solution](Chapter2/exercise2-7.c)
-* Exercise 2-8. Write a function `rightrot(x, n)` that returns the value of the integer `x` rotated to the right by `n` bit positions.
+* Exercise 2-8. Write a function `rightrot(x, n)` that returns the value of the integer `x` rotated to the right by `n` bit positions. [solution](Chapter2/exercise2-8.c)
 * Exercise 2-9. In a two's complement number system, `x &= (x - 1)` deletes the rightmost 1-bit in `x`. Explain why. Use this observation to write a faster version of `bitcount`. [solution](Chapter2/exercise2-9.c)
 * Exercise 2-10. Rewrite the function `lower`, which converts the upper case letters to lower case, with a conditional expression instead of `if-else`. [solution](Chapter2/exercise2-10.c)
 
